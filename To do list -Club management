@@ -1,0 +1,143 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Shoriful-Shuvo/MAp-FOREACH/blob/main/To%20do%20list%20-Club%20management\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pVoydxHF_T4q",
+        "outputId": "5935ec61-78d1-4f77-90a8-93d148623929"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Welcome to List Management System\n",
+            "1--> Create the member list\n",
+            "2--> Add a new member\n",
+            "3--> Promote a member\n",
+            "4--> Remove a member\n",
+            "5--> Show the current list\n",
+            "6--> Exit\n",
+            "\n"
+          ]
+        }
+      ],
+      "source": [
+        "\n",
+        "club_members = []\n",
+        "def createlist():\n",
+        "    Row = int(input(\"Enter the number of members: \"))\n",
+        "    for i in range(Row):\n",
+        "       name = input(f'Enter the name for member {i+1}: ')\n",
+        "       member_id = int(input(f'Enter the ID for member {i+1}: '))\n",
+        "       role = input(f'Enter the role for member {i+1}: ')\n",
+        "       specialization = input(f'Enter the specialization for member {i+1}: ')\n",
+        "       club_members.append([name, member_id, role, specialization])\n",
+        "\n",
+        "def clubManagement(club_members):\n",
+        "    print(\" {0:25}  {1:15}  {2:25} {3:15}\".format(\"Name\", \"ID\", \"Role\", \"Specialization\"))\n",
+        "    for member in club_members:\n",
+        "        print(\" {0:25}  {1:15}  {2:25} {3:15}\".format(member[0], member[1], member[2], member[3]))\n",
+        "\n",
+        "\n",
+        "\n",
+        "def recruitment():\n",
+        "    Name = input(\"Enter The Name Of New Member: \")\n",
+        "    Id = int(input(\"Enter The ID No. Of New Member: \"))\n",
+        "    Role = \"Member\"\n",
+        "    Specialization = input(\"Enter The Specialization Area Of New Member: \")\n",
+        "    club_members.append([Name, Id, Role, Specialization])\n",
+        "\n",
+        "\n",
+        "\n",
+        "def promoteMembers():\n",
+        "    memberId = int(input(\"Enter The ID No. Of The Member That Club Management Want To Promote: \"))\n",
+        "    found = 0\n",
+        "    for member in club_members:\n",
+        "        if member[1] == memberId:\n",
+        "            new_role = input(\"Enter Role Club Management Want To Promote: \")\n",
+        "            member[2] = new_role\n",
+        "            found = 1\n",
+        "            break\n",
+        "    if found == 0:\n",
+        "        print(\"Not Found\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "def removeMembers():\n",
+        "    memberId = int(input(\"Enter the member ID that needs to be removed: \"))\n",
+        "    found = 0\n",
+        "    for i in range(len(club_members)):\n",
+        "        if club_members[i][1] == memberId:\n",
+        "            del club_members[i]\n",
+        "            print(\"Removed\", memberId, \"Successfully\")\n",
+        "            found = 1\n",
+        "            break\n",
+        "    if found == 0:\n",
+        "        print(memberId, \"is Not Found.\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "print(\"Welcome to List Management System\")\n",
+        "print(\"1--> Create the member list\")\n",
+        "print(\"2--> Add a new member\")\n",
+        "print(\"3--> Promote a member\")\n",
+        "print(\"4--> Remove a member\")\n",
+        "print(\"5--> Show the current list\")\n",
+        "print(\"6--> Exit\")\n",
+        "\n",
+        "while True:\n",
+        "    print()\n",
+        "    Choose = int(input(\"Choose an option: \"))\n",
+        "    if Choose == 1:\n",
+        "        createlist()\n",
+        "    elif Choose == 2:\n",
+        "        recruitment()\n",
+        "    elif Choose == 3:\n",
+        "        promoteMembers()\n",
+        "    elif Choose == 4:\n",
+        "        removeMembers()\n",
+        "    elif Choose == 5:\n",
+        "        clubManagement(club_members)\n",
+        "    elif Choose == 6:\n",
+        "        clubManagement(club_members)\n",
+        "        print(\"Thank you\")\n",
+        "        print(\"Exit\")\n",
+        "        break\n",
+        "    else:\n",
+        "        print(\"Invalid Input\")\n",
+        "\n",
+        "\n"
+      ]
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
